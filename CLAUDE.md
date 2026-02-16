@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Flor de Tango** is a static website for a tango dance association based in Grâce, France. The site is a single-page design showcasing the association's courses (Argentine tango, milonga, waltz), teachers (Céline Bacquet and Edouard Paco), and contact information.
+**Flor de Tango** is a static website for a tango dance association based in Grasse, France. The site is a single-page design showcasing the association's courses (Argentine tango, milonga, waltz), teachers (Céline Bacquet and Edouard Paco), and contact information.
 
 - **Language:** French (all content is in French)
 - **Contact:** contact@flordetango.fr
