@@ -56,9 +56,18 @@
     .prof-role { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rouge); margin-bottom: 16px; }
     .prof-card p { font-size: 0.95rem; line-height: 1.8; color: var(--gris); }
 
-    #contact { background: var(--noir); text-align: center; }
-    .contact-info { margin: 40px 0; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
-    .contact-item .label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--or); margin-bottom: 6px; }
+    #contact { background: var(--noir); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; margin: 0 auto; align-items: start; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-form input, .contact-form textarea { font-family: 'Lato', sans-serif; font-size: 0.95rem; padding: 14px 18px; background: rgba(250,246,239,0.06); border: 1px solid rgba(201,168,76,0.25); color: var(--creme); outline: none; transition: border-color 0.3s; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(250,246,239,0.35); }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--or); }
+    .contact-form textarea { resize: vertical; min-height: 140px; }
+    .contact-form button { font-family: 'Lato', sans-serif; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; padding: 14px 40px; background: var(--rouge); color: var(--creme); border: 1px solid var(--rouge); cursor: pointer; transition: all 0.3s; }
+    .contact-form button:hover { background: transparent; border-color: var(--or); color: var(--or); }
+    .contact-aside p { font-size: 1rem; line-height: 1.9; color: rgba(250,246,239,0.6); margin-bottom: 16px; }
+    .contact-aside a { color: var(--or); text-decoration: none; transition: color 0.3s; }
+    .contact-aside a:hover { color: var(--creme); }
 
     footer { background: #080808; text-align: center; padding: 28px; border-top: 1px solid rgba(201,168,76,0.15); font-size: 0.8rem; color: rgba(250,246,239,0.35); }
     footer span { color: var(--or); }
@@ -76,7 +85,7 @@
 
     @media (max-width: 768px) {
       nav { padding: 16px 24px; } .nav-links { display: none; } section { padding: 60px 24px; }
-      .apropos-grid, .cours-grid, .profs-grid, .lieux-grid { grid-template-columns: 1fr; }
+      .apropos-grid, .cours-grid, .profs-grid, .lieux-grid, .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -111,7 +120,6 @@
         <div class="divider" style="background:#8B1A1A;"></div>
         <p>Flor de Tango est une association dédiée à la transmission et au partage des danses de couple d'origine argentine. Fondée par Céline Bacquet et Edouard Pacaud, l'association accueille débutants et danseurs confirmés dans une ambiance chaleureuse.</p>
         <p>Basée à Grasse, notre association propose des cours de tango argentin, de milonga et de valse argentine, dans le respect de la tradition et avec une pédagogie adaptée à chacun.</p>
-        <a href="#cours" class="btn" style="margin-top:8px;">Voir les cours</a>
       </div>
     </div>
   </section>
@@ -192,13 +200,25 @@
   </section>
 
   <section id="contact">
-    <div style="max-width:600px;margin:0 auto;text-align:center;">
+    <div style="max-width:900px;margin:0 auto;">
       <p class="section-label">Rejoignez-nous</p>
       <h2 class="section-title">Venez danser avec nous</h2>
-      <div class="divider" style="margin:0 auto 20px;"></div>
-      <p style="color:rgba(250,246,239,0.6);line-height:1.8;">Contactez-nous pour connaître les tarifs et pour vous inscrire. Débutants bienvenus !</p>
-      <a href="mailto:celine79.baquet@yahoo.com" class="btn" style="margin-top:30px;">Nous écrire</a>
-      <a href="https://www.facebook.com/p/Edouard-et-C%C3%A9line-Tango-100069158237376/" class="btn btn-outline" target="_blank" rel="noopener">Facebook</a>
+      <div class="divider"></div>
+      <div class="contact-grid">
+        <form class="contact-form" action="https://formsubmit.co/celine79.baquet@yahoo.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message depuis Flor de Tango">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="name" placeholder="Votre nom" required>
+          <input type="email" name="email" placeholder="Votre email" required>
+          <textarea name="message" placeholder="Votre message…" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+        <div class="contact-aside">
+          <p>Une question sur les cours, les tarifs ou les inscriptions ? Écrivez-nous via le formulaire ou directement par email. Débutants bienvenus !</p>
+          <p><a href="mailto:celine79.baquet@yahoo.com">celine79.baquet@yahoo.com</a></p>
+          <a href="https://www.facebook.com/p/Edouard-et-C%C3%A9line-Tango-100069158237376/" class="btn btn-outline" style="margin-top:16px;" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
     </div>
   </section>
 
